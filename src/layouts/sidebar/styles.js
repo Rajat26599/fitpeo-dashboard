@@ -4,7 +4,7 @@ import { darkTheme } from "../../constants/globalStyles"
 export const SidebarWrapper = styled.div`
     background-color: ${darkTheme.colors.bgprimary};
     position: absolute;
-    height: 100vh;
+    height: calc(100vh - 50px);
     width: 50px;
     z-index: 9;
 `
@@ -26,7 +26,7 @@ export const IconWrapper = styled.div`
 
     &:nth-last-of-type(1) {
         position: absolute;
-        bottom: 20px;
+        bottom: 40px;
     }
 
 `

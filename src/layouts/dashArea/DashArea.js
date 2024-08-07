@@ -3,9 +3,10 @@ import Icon from "../../components/icon/Icon"
 import Indicator from "../../components/indicator/Indicator"
 import P from "../../components/p/P"
 import {darkTheme} from "../../constants/globalStyles"
+import Feedback from "./Feedback"
 import NetProfit from "./NetProfit"
 import RecentOrders from "./RecentOrders"
-import { DashAreaWrapper, Sections, MainSection, RightSection, StatsSection, QuickAction, Chevron, QuickActionLeft, FeedbackSection, Feedbacks, Avatar, Author, ActivitySection } from "./styles"
+import { DashAreaWrapper, Sections, MainSection, RightSection, StatsSection, QuickAction, Chevron, QuickActionLeft, ActivitySection } from "./styles"
 
 const DashArea = () => {
     const statsData = [
@@ -55,23 +56,6 @@ const DashArea = () => {
             name: 'Menus',
         },
     ]
-    const feebackData = [
-        {
-            name: 'Jeremy',
-            stars: 4,
-            feedback: 'The CSS anchor positioning module defines features that allow you to tether elements together. Certain elements are defined as anchor elements; anchor-positioned elements can then have their size and position set based on the size and location of the anchor elements to which they are bound.',
-        },
-        {
-            name: 'Jeremy',
-            stars: 4,
-            feedback: 'The CSS anchor positioning module defines features that allow you to tether elements together. Certain elements are defined as anchor elements; anchor-positioned elements can then have their size and position set based on the size and location of the anchor elements to which they are bound.',
-        },
-        {
-            name: 'Jeremy',
-            stars: 4,
-            feedback: 'The CSS anchor positioning module defines features that allow you to tether elements together. Certain elements are defined as anchor elements; anchor-positioned elements can then have their size and position set based on the size and location of the anchor elements to which they are bound.',
-        },
-    ]
     return (
         <DashAreaWrapper>
             <P fontsize='1.5rem' fontweight='bold' color={darkTheme.font.color}>Dashboard</P>
@@ -116,25 +100,8 @@ const DashArea = () => {
                             ))
                         }
                     </Card>
-                    <Card>
-                        <P>Customer's Feedback</P>
-                        <Feedbacks>
-                            {
-                                feebackData.map((item, index) => (
-                                    <>
-                                        <FeedbackSection>
-                                            <Author>
-                                                <Avatar src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1tp9TiImDk19cB5AqKVYUHEDALJOqXNlOM0iLLlMJ6PcDHlbF-7FxcVQjkeZ_NpQblqs&usqp=CAU'} alt='avatar'></Avatar>
-                                                <P fontsize='0.8rem'>{item.name}</P>
-                                            </Author>
-                                            <P fontsize='0.7rem' color='#aaa'>{item.feedback}</P>
-                                        </FeedbackSection>
-                                        <hr />
-                                    </>
-                                ))
-                            }
-                        </Feedbacks>
-                    </Card>
+
+                    <Feedback />
                 </RightSection>
             </Sections>
         </DashAreaWrapper>

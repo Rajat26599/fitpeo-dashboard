@@ -1,5 +1,4 @@
-import { Author, Avatar, OrderRow, OrderStatus, RecentOrdersSection } from "./styles"
-import Card from "../../components/card/Card"
+import { Author, Avatar, OrderRow, OrderStatus, RecentOrdersList, RecentOrdersSection } from "./styles"
 import P from "../../components/p/P"
 
 const RecentOrders = () => {
@@ -21,13 +20,31 @@ const RecentOrders = () => {
             orderNumber: '123456',
             amount: 100,
             status: 'Canceled',
+        },        
+        {
+            customer: 'Rajat Saxena',
+            orderNumber: '123456',
+            amount: 100,
+            status: 'Canceled',
+        },
+        {
+            customer: 'Rajat Saxena',
+            orderNumber: '123456',
+            amount: 100,
+            status: 'Delivered',
+        },
+        {
+            customer: 'Rajat Saxena',
+            orderNumber: '123456',
+            amount: 100,
+            status: 'Delivered',
         },
     ]
     return (
         <RecentOrdersSection>
-            <Card>
-                <P fontweight='bold'>Recent Orders</P>
-                <br />
+            <P fontweight='bold'>Recent Orders</P>
+            <br />
+            <RecentOrdersList>
                 <OrderRow>
                     <Author>
                         <P fontweight='bold'>Customer</P>
@@ -47,13 +64,13 @@ const RecentOrders = () => {
                                 </Author>
                                 <P>{item.orderNumber}</P>
                                 <P>${item.amount}</P>
-                                <OrderStatus bgcolor={item.status==='Delivered' ? 'rgba(0,255,0,0.2)' : 'rgba(255,0,0,0.2)'} color={item.status==='Delivered' ? 'green' : 'red'}>{item.status}</OrderStatus>
+                                <OrderStatus bgcolor={item.status==='Delivered' ? 'rgba(0,255,0,0.1)' : 'rgba(255,0,0,0.1)'} color={item.status==='Delivered' ? 'green' : 'red'}>{item.status}</OrderStatus>
                             </OrderRow>
-                            <hr />
+                            {index !== ordersData.length-1 && <hr />}
                         </>
                     ))
                 }
-            </Card>
+            </RecentOrdersList>
         </RecentOrdersSection>
     )
 }
